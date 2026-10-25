@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GallerySlim</string>
+
+    <string name="settings_title">सेटिंग्स</string>
+    <string name="settings_preset">कितना छोटा करें</string>
+    <string name="preset_gentle">हल्का</string>
+    <string name="preset_balanced">संतुलित</string>
+    <string name="preset_aggressive">ज़्यादा</string>
+    <string name="preset_light">हल्की कॉपी</string>
+    <string name="preset_gentle_caption">सबसे अच्छी क्वालिटी, कम जगह बचती है</string>
+    <string name="preset_balanced_caption">देखने में बिल्कुल वैसी, अच्छी बचत (सुझाया गया)</string>
+    <string name="preset_aggressive_caption">सबसे ज़्यादा बचत। स्क्रीनशॉट और फ़ॉरवर्ड की गई फ़ोटो के लिए सबसे अच्छा</string>
+    <string name="preset_light_caption">साइज़ को 2048 पिक्सेल तक भी घटाता है। उन फ़ोटो के लिए जिनकी पूरी डिटेल ज़रूरी नहीं</string>
+    <string name="settings_gps_caveat">छोटी की गई HEIC फ़ोटो में तारीख़ और दिशा बनी रहती है, पर इस वर्ज़न में GPS लोकेशन हट जाती है। JPEG से JPEG में सब कुछ बना रहता है।</string>
+    <string name="settings_vault">सेफ़्टी वॉल्ट</string>
+    <string name="settings_vault_caption">छोटा करने से पहले हर ओरिजिनल की हूबहू कॉपी आपके चुने फ़ोल्डर में रखता है</string>
+    <string name="settings_vault_space_warning">फ़ोन की अपनी स्टोरेज पर वॉल्ट उतनी ही जगह लेता है जितनी ओरिजिनल। SD कार्ड, USB ड्राइव या क्लाउड से सिंक होने वाला फ़ोल्डर चुनें।</string>
+    <string name="settings_open_vault">वॉल्ट खोलें</string>
+    <string name="settings_open_vault_caption">वॉल्ट में रखी कॉपी देखें और वापस लाएँ</string>
+    <string name="settings_open_vault_unset">वॉल्ट फ़ोल्डर चुनें</string>
+    <string name="settings_motion_folder">मोशन-क्लिप एक्सपोर्ट फ़ोल्डर</string>
+    <string name="settings_motion_folder_caption">मोशन फ़ोटो के अंदर का छोटा वीडियो हटाने से पहले यहाँ सेव होता है</string>
+    <string name="settings_not_set">सेट नहीं है</string>
+    <string name="settings_overnight">रात में छोटा करें</string>
+    <string name="settings_overnight_caption">रात में फ़ोन चार्ज होते समय छोटा करता है। कुछ भी डिलीट नहीं होता। सुबह आप नतीजे देखते हैं।</string>
+    <string name="settings_lock">फ़िंगरप्रिंट या PIN से लॉक करें</string>
+    <string name="settings_lock_caption">हटाने के लिए तैयार ओरिजिनल और वॉल्ट दिखाने से पहले फ़िंगरप्रिंट या PIN माँगता है</string>
+    <string name="settings_protect">नई फ़ोटो को सुरक्षित रखें</string>
+    <string name="settings_days">%1$d दिन</string>
+    <string name="settings_protect_caption">इससे नई फ़ोटो तब तक नहीं चुनी जातीं जब तक आप ख़ुद न चुनें।</string>
+    <string name="settings_rules">आपके नियम</string>
+    <string name="settings_rules_caption">पाँच सवाल, जो तय करते हैं कि क्या हटाने का सुझाव मिले</string>
+    <string name="settings_privacy">प्राइवेसी</string>
+    <string name="settings_privacy_caption">GallerySlim आपकी फ़ोटो के साथ क्या करता है और क्या नहीं</string>
+    <string name="widget_description">खाली जगह और फ़ोन कब भर जाएगा</string>
+    <string name="settings_off">बंद</string>
+    <string name="settings_gb">%1$d GB</string>
+    <string name="settings_years">%1$d साल से पुरानी</string>
+    <string name="settings_floor">इतनी जगह हमेशा खाली रखें</string>
+    <string name="settings_floor_caption">रात में छोटा करना इसी लक्ष्य के लिए काम करता है, और सुबह बताता है कि क्या हटाना है।</string>
+    <string name="settings_cool">पुरानी फ़ोटो की हल्की कॉपी</string>
+    <string name="settings_cool_caption">2048 px कॉपी। पसंदीदा कभी नहीं; एल्बम नियम पहले; ओरिजिनल हटाने के लिए तैयार में रहते हैं।</string>
+    <string name="section_quality">क्वालिटी</string>
+    <string name="section_automatic">अपने आप</string>
+    <string name="section_safety">सुरक्षा</string>
+    <string name="section_other">अन्य</string>
+</resources>

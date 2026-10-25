@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Notification glyph: a photo frame with arrows pointing inward ("shrink"). White on transparent. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M4,3h16a1,1 0,0 1,1 1v16a1,1 0,0 1,-1 1H4a1,1 0,0 1,-1 -1V4a1,1 0,0 1,1 -1zM5,5v14h14V5H5z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M7,7l3.5,3.5V8.5h1.5v4.5H7.5v-1.5h2L6,8zM17,17l-3.5,-3.5v2h-1.5V11h4.5v1.5h-2L18,16z" />
+</vector>

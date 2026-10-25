@@ -1,0 +1,22 @@
+{
+  "K_b64url": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8",
+  "N_b64url": "oKGio6SlpqeoqaqrrK2ur7CxsrO0tba3uLm6u7y9vr8",
+  "ack_canonical": "POST\n/api/r/ack\n\nAbCdEfGhIjKlMnOp\n7\n20f5baca8db3e52f2904f4f1dfcfd6473d38bece534d81cfdf7ea409b8cc24fa",
+  "ack_mac_b64url": "hEHTh44Kbo7JGemtUiurVnwGES3a42hvdMf4_ZqGmg4",
+  "encKey_hex": "1fa903dc5a1fa9a4762199d40171ade48b6f3b35c0970325238ef475b96001d3",
+  "frames_frameSize": "8",
+  "frames_offset": "3",
+  "frames_plaintext": "Hello, GallerySlim!",
+  "frames_prefix_hex": "0102030405060708",
+  "frames_resource": "f:42",
+  "frames_stream_hex": "010203040506070800000018df8009e22ea85f2fd2dfee032831c3f93220dbb2092198f100000018d8f210983034bcdd044783e76bf2a6d511558086ab8a8a0700000013ba5d27103d477f5015782a6d7648261f90ed10",
+  "get_canonical": "GET\n/api/r/file?f=42\nbytes=3-\nAbCdEfGhIjKlMnOp\n8\ne3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "get_mac_b64url": "aJdCZWqjPhWkM5xR3Yz1h_f8tV6yiJ1V1yCCwR9DZPc",
+  "macKey_hex": "a8168828db3d9d1930d1b75a088682ca8e3a6d8ae34515a03099d6669fcf2db2",
+  "qr": "gs2:AbCdEfGhIjKlMnOp:AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8",
+  "rmac_b64url": "PWCqv0lZW6k3E1Uoa_4ImbbIMa6tyCaHZaOx1zTXQR0",
+  "rmac_body": "{\"ok\":true,\"verified\":true}",
+  "rmac_ctr": "7",
+  "rmac_status": "200",
+  "sid": "AbCdEfGhIjKlMnOp"
+}

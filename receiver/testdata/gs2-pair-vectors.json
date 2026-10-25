@@ -1,0 +1,13 @@
+{
+  "K_b64url": "AAECAwQFBgcICQoLDA0ODxAREhMUFRYXGBkaGxwdHh8",
+  "N_b64url": "oKGio6SlpqeoqaqrrK2ur7CxsrO0tba3uLm6u7y9vr8",
+  "claim_body": "{\"sid\":\"AbCdEfGhIjKlMnOp\",\"rid\":\"EBESExQVFhcYGRobHB0eHw\",\"proof\":\"m9PeYQ-V0nrvwYznix5CFsW4Vn1r5KW4d_gOVU7wv-Q\"}",
+  "claim_proof_b64url": "m9PeYQ-V0nrvwYznix5CFsW4Vn1r5KW4d_gOVU7wv-Q",
+  "claim_text": "gs2 claim\nAbCdEfGhIjKlMnOp\noKGio6SlpqeoqaqrrK2ur7CxsrO0tba3uLm6u7y9vr8",
+  "known_encKey_hex": "6a4fafa39f5a2e75bf992e6af2f2e502658adb605670df0b44b6c5096c747313",
+  "known_macKey_hex": "cdf645020db36ac5bebf04f2581191eca0d4f470db8703a99daa6948cbd7b9d6",
+  "pairKey_hex": "88b39c7009bebb8e685cc79ef492a85a842c35bba7b3655e31dc1382eda46f4e",
+  "pid": "ICEiIyQlJicoKSorLC0uLw",
+  "rid": "EBESExQVFhcYGRobHB0eHw",
+  "sid": "AbCdEfGhIjKlMnOp"
+}

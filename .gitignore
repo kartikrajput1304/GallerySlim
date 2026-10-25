@@ -1,0 +1,28 @@
+# Build outputs (rebuildable; app files are published on GitHub Releases instead)
+build/
+app/build/
+receiver/build/
+dist/
+*.apk
+*.aab
+.gradle/
+.kotlin/
+.build.lock
+
+# Local machine settings and private backups
+local.properties
+.snapshots/
+.idea/
+*.iml
+.DS_Store
+
+# Personal data pulled from a phone (photo names, databases) and lab copies
+tools/logs/
+tools/lab/
+
+# Signing keys and secrets — never commit
+*.jks
+*.keystore
+keystore.properties
+*.p12
+*.pem

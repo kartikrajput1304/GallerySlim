@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">GallerySlim</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="settings_preset">How much to shrink</string>
+    <string name="preset_gentle">Gentle</string>
+    <string name="preset_balanced">Balanced</string>
+    <string name="preset_aggressive">Aggressive</string>
+    <string name="preset_light">Light copy</string>
+    <string name="preset_gentle_caption">Highest quality, smaller savings</string>
+    <string name="preset_balanced_caption">Looks the same, good savings (recommended)</string>
+    <string name="preset_aggressive_caption">Biggest savings. Best for screenshots and forwarded photos</string>
+    <string name="preset_light_caption">Also reduces size to 2048 pixels. For photos you don\'t need in full detail</string>
+    <string name="settings_gps_caveat">Shrunk HEIC photos keep their date and rotation, but lose the GPS location tag in this version. JPEG-to-JPEG shrinks keep everything.</string>
+    <string name="settings_vault">Safety vault</string>
+    <string name="settings_vault_caption">Keeps an exact copy of every original in a folder you choose, before anything is shrunk</string>
+    <string name="settings_vault_space_warning">A vault on this phone\'s own storage uses as much space as the originals. Pick an SD card, USB drive or a cloud-synced folder.</string>
+    <string name="settings_open_vault">Open vault</string>
+    <string name="settings_open_vault_caption">See and restore the copies kept in the vault</string>
+    <string name="settings_open_vault_unset">Choose the vault folder</string>
+    <string name="settings_motion_folder">Motion-clip export folder</string>
+    <string name="settings_motion_folder_caption">Where the short video inside motion photos is saved before it\'s removed</string>
+    <string name="settings_not_set">Not set</string>
+    <string name="settings_overnight">Shrink overnight</string>
+    <string name="settings_overnight_caption">Shrinks while the phone is charging at night. Nothing is deleted. You review the results in the morning.</string>
+    <string name="settings_lock">Lock with fingerprint or PIN</string>
+    <string name="settings_lock_caption">Asks for your fingerprint or PIN before showing the originals that are ready to clear, and the vault</string>
+    <string name="settings_protect">Protect new photos for</string>
+    <string name="settings_days">%1$d days</string>
+    <string name="settings_protect_caption">Photos newer than this stay unticked unless you pick them.</string>
+    <string name="settings_rules">Your rules</string>
+    <string name="settings_rules_caption">Five questions that decide what gets suggested for clearing</string>
+    <string name="settings_privacy">Privacy</string>
+    <string name="settings_privacy_caption">What GallerySlim does and doesn\'t do with your photos</string>
+    <string name="widget_description">Free space and when your phone will be full</string>
+    <string name="settings_off">Off</string>
+    <string name="settings_gb">%1$d GB</string>
+    <string name="settings_years">Older than %1$d yr</string>
+    <string name="settings_floor">Keep this much space free</string>
+    <string name="settings_floor_caption">Overnight shrinking works toward this goal, and the morning note tells you what to clear.</string>
+    <string name="settings_cool">Lighter copies of old photos</string>
+    <string name="settings_cool_caption">2048 px copies. Favourites never; album rules win; originals wait in Ready to clear.</string>
+    <string name="section_quality">Quality</string>
+    <string name="section_automatic">Automatic</string>
+    <string name="section_safety">Safety</string>
+    <string name="section_other">Other</string>
+</resources>

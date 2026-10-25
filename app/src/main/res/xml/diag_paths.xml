@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!-- Shareable: the diagnostics folder, and the "Share small" copies in cache/share. Nothing else. -->
+    <files-path name="logs" path="logs/" />
+    <cache-path name="share_small" path="share/" />
+</paths>

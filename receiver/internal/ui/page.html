@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="referrer" content="no-referrer">
+<title>GallerySlim Receiver</title>
+<style>{{CSS}}</style>
+</head>
+<body>
+<header class="top">
+  <div class="top-in">
+    <div class="brand">
+      <span class="mark" aria-hidden="true"></span>
+      <span>GallerySlim Receiver</span>
+    </div>
+    <div id="host" class="host" hidden>
+      <span class="host-label" id="host-label">This computer</span>
+      <span id="host-view" class="host-view">
+        <span id="host-name" class="host-name" aria-describedby="host-label"></span>
+        <button type="button" id="btn-rename" class="link small-link" data-action hidden>Rename</button>
+      </span>
+      <span id="host-edit" class="host-edit" hidden>
+        <label for="host-input" class="sr-only">Name of this computer</label>
+        <input id="host-input" type="text" maxlength="40" autocomplete="off" spellcheck="false">
+        <button type="button" id="btn-rename-save" class="btn primary compact" data-action>Save</button>
+        <button type="button" id="btn-rename-cancel" class="btn secondary compact">Cancel</button>
+      </span>
+    </div>
+    <button type="button" id="btn-settings" class="icon-btn" aria-haspopup="dialog" aria-controls="settings" aria-label="Settings">
+      <svg viewBox="0 0 24 24" width="26" height="26" aria-hidden="true" focusable="false"><path fill="currentColor" d="M19.4 13a7.6 7.6 0 0 0 0-2l2.1-1.6a.5.5 0 0 0 .1-.6l-2-3.5a.5.5 0 0 0-.6-.2l-2.5 1a7.4 7.4 0 0 0-1.7-1l-.4-2.6a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 0-.5.4l-.4 2.7a7.4 7.4 0 0 0-1.7 1l-2.5-1a.5.5 0 0 0-.6.2l-2 3.5a.5.5 0 0 0 .1.6L4.6 11a7.6 7.6 0 0 0 0 2l-2.1 1.6a.5.5 0 0 0-.1.6l2 3.5c.1.2.4.3.6.2l2.5-1a7.4 7.4 0 0 0 1.7 1l.4 2.6c0 .3.2.5.5.5h4c.3 0 .5-.2.5-.4l.4-2.7a7.4 7.4 0 0 0 1.7-1l2.5 1c.2.1.5 0 .6-.2l2-3.5a.5.5 0 0 0-.1-.6L19.4 13zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg>
+    </button>
+  </div>
+  <p id="host-msg" class="msg top-msg" role="status" aria-live="polite"></p>
+</header>
+
+<main id="main">
+  <p id="announce" class="sr-only" aria-live="polite"></p>
+
+  <div id="lost" class="problem" role="alert" hidden>
+    <span class="problem-icon" aria-hidden="true">!</span>
+    <div>
+      <strong>Lost contact with the receiver.</strong>
+      <p>If you closed it, open GallerySlim Receiver again. This page reconnects by itself.</p>
+    </div>
+  </div>
+
+  <!-- Starting -->
+  <section id="v-loading" class="view" aria-labelledby="h-loading">
+    <h1 id="h-loading">Starting…</h1>
+    <div class="spinner" aria-hidden="true"></div>
+  </section>
+
+  <!-- Choose folder (first run) -->
+  <section id="v-choose-folder" class="view" aria-labelledby="h-choose" hidden>
+    <h1 id="h-choose">Where should your photos go?</h1>
+    <p class="lead">Photos from your phone are saved here, sorted into a folder for each month.</p>
+    <div class="card folder-card">
+      <svg class="folder-icon" viewBox="0 0 48 40" width="56" height="46" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4 4h14l4 5h22a4 4 0 0 1 4 4v23a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V8a4 4 0 0 1 4-4z"/></svg>
+      <div class="folder-text">
+        <span class="label" id="cf-label">Suggested folder</span>
+        <p class="path" id="cf-folder" aria-describedby="cf-label"></p>
+        <p id="cf-note" class="inline-note" hidden></p>
+      </div>
+    </div>
+    <div class="actions">
+      <button type="button" id="btn-use" class="btn primary" data-action>Use this folder</button>
+      <button type="button" id="btn-choose" class="btn secondary" data-action>Choose another…</button>
+    </div>
+    <p id="cf-msg" class="msg" role="status" aria-live="polite"></p>
+    <details id="cf-type" class="disclosure">
+      <summary>Type a folder path instead</summary>
+      <div class="field">
+        <label for="cf-path">Folder path</label>
+        <input id="cf-path" type="text" autocomplete="off" autocapitalize="off" spellcheck="false">
+        <button type="button" id="btn-use-typed" class="btn secondary" data-action>Use this path</button>
+      </div>
+    </details>
+  </section>
+
+  <!-- Waiting for a phone / pairing -->
+  <section id="v-connect" class="view" aria-labelledby="h-connect" hidden>
+    <h1 id="h-connect">Connect your phone</h1>
+
+    <div id="cn-problem" class="problem" role="alert" hidden>
+      <span class="problem-icon" aria-hidden="true">!</span>
+      <div>
+        <p id="cn-problem-text" class="problem-text"></p>
+        <p class="problem-hint">Check that the phone and this computer are on the same Wi-Fi.</p>
+        <button type="button" id="btn-search" class="btn secondary compact" data-action>Search again</button>
+      </div>
+    </div>
+
+    <!-- A remembered phone: no codes needed -->
+    <div id="cn-waiting" class="card device-card" hidden>
+      <span class="pulse" aria-hidden="true"></span>
+      <div>
+        <p class="device-title">Waiting for <span id="cn-waiting-name" class="em"></span></p>
+        <p class="device-hint">On your phone, open <strong>GallerySlim</strong> and tap <strong>Send to computer</strong>.</p>
+      </div>
+    </div>
+
+    <!-- Code check without a QR code -->
+    <div id="cn-confirm" class="card center" hidden>
+      <p class="label">Check that your phone shows this code</p>
+      <p id="cn-confirm-code" class="code"></p>
+    </div>
+
+    <!-- Looking, nothing to scan yet -->
+    <div id="cn-looking" class="card device-card" hidden>
+      <span class="pulse" aria-hidden="true"></span>
+      <div>
+        <p class="device-title">Looking for your phone…</p>
+        <p class="device-hint">On your phone, open <strong>GallerySlim</strong> and tap <strong>Send to computer</strong>.</p>
+      </div>
+    </div>
+
+    <!-- Bring back to phone: an approved phone accepts uploads -->
+    <div id="cn-ready" class="card device-card" hidden>
+      <span class="dot-ok" aria-hidden="true">✓</span>
+      <div>
+        <p class="device-title"><span id="cn-ready-name" class="em"></span> is ready</p>
+        <p class="device-hint">Choose photos and videos on this computer to put back on your phone.</p>
+      </div>
+    </div>
+    <div id="cn-send" hidden>
+      <div id="dropzone" class="dropzone">
+        <p id="drop-title" class="drop-title">Drop photos here to send them to your phone</p>
+        <p class="small">Photos and videos only, up to 500 at a time.</p>
+        <button type="button" id="btn-pick-send" class="btn primary" data-action>Send photos to your phone…</button>
+        <input id="send-input" type="file" multiple accept="image/*,video/*" hidden>
+      </div>
+      <p id="send-msg" class="msg" role="status" aria-live="polite"></p>
+    </div>
+
+    <div id="cn-new" class="new-phone">
+      <details id="cn-new-toggle" class="disclosure" hidden>
+        <summary>Use a different phone</summary>
+      </details>
+      <div id="cn-qr-card" class="card qr-card" hidden>
+        <div id="pr-qr" class="qr" role="img" aria-label="QR code to scan with your phone"></div>
+        <div class="qr-side">
+          <p class="label">Short code</p>
+          <p id="pr-code" class="code"></p>
+          <ol class="steps">
+            <li>Open <strong>GallerySlim</strong> on your phone</li>
+            <li>Tap <strong>Send to computer</strong></li>
+            <li>Tap <strong>Scan</strong> and point the phone at this code</li>
+          </ol>
+          <p id="pr-phone-line" class="small" hidden>Connecting to <span id="pr-phone" class="em"></span></p>
+        </div>
+      </div>
+      <div id="fd-phones-box" class="card" hidden>
+        <h2 id="h-phones" class="card-title">Phones on this Wi-Fi</h2>
+        <p class="small">Choose yours.</p>
+        <div id="fd-phones" class="phones" role="group" aria-labelledby="h-phones"></div>
+      </div>
+      <details id="cn-addr" class="disclosure" hidden>
+        <summary>Enter the phone's address</summary>
+        <div class="field">
+          <label for="fd-addr">Phone address</label>
+          <p class="hint" id="fd-addr-hint">It is shown on the phone's Send to computer screen, for example 192.168.1.23:8765.</p>
+          <input id="fd-addr" type="text" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" aria-describedby="fd-addr-hint">
+          <button type="button" id="btn-addr" class="btn secondary" data-action>Connect</button>
+        </div>
+      </details>
+    </div>
+    <p id="fd-msg" class="msg" role="status" aria-live="polite"></p>
+    <p id="fd-folder-line" class="small saving-to">Photos will be saved to <span id="fd-folder" class="path-inline"></span></p>
+    <p id="fd-note" class="inline-note" hidden></p>
+  </section>
+
+  <!-- Receiving -->
+  <section id="v-receiving" class="view" aria-labelledby="h-receiving" hidden>
+    <h1 id="h-receiving">Receiving your photos</h1>
+    <div class="card progress-card">
+      <div id="rc-ring" class="ring" role="progressbar" aria-labelledby="h-receiving" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+        <span id="rc-pct" class="ring-pct" aria-hidden="true">0%</span>
+      </div>
+      <div class="progress-text">
+        <p id="rc-count" class="count"></p>
+        <p id="rc-bytes" class="stat"></p>
+        <p id="rc-eta" class="stat eta"></p>
+        <p id="rc-current-line" class="now" hidden><span class="label-inline">Now</span> <span id="rc-current" class="name-inline"></span></p>
+      </div>
+    </div>
+    <p id="rc-live" class="sr-only" aria-live="polite" aria-atomic="true"></p>
+    <p class="keep"><span class="keep-dot" aria-hidden="true"></span>Keep this window open until it says Done.</p>
+    <div id="rc-thumbs-box" hidden>
+      <h2 id="rc-thumbs-title" class="section-title">Just arrived</h2>
+      <ul id="rc-thumbs" class="thumbs" aria-label="Latest photos received, newest first"></ul>
+    </div>
+    <details class="disclosure all-files">
+      <summary>Show all files</summary>
+      <ul id="rc-rows" class="rows" aria-label="Files, newest first"></ul>
+      <p id="rc-more" class="small" hidden></p>
+    </details>
+    <p id="rc-folder-line" class="small">Saving to <span id="rc-folder" class="path-inline"></span></p>
+    <p id="rc-phone-line" class="small" hidden>On your phone they go to Pictures › GallerySlim › Restored.</p>
+  </section>
+
+  <!-- Done -->
+  <section id="v-done" class="view" aria-labelledby="h-done" hidden>
+    <div class="card done-card">
+      <span id="dn-icon" class="done-icon" aria-hidden="true">✓</span>
+      <h1 id="h-done">All done!</h1>
+      <p id="dn-total" class="done-total"></p>
+      <ul id="dn-summary" class="summary"></ul>
+      <p id="dn-folder-line" class="small">Your photos are in <span id="dn-folder" class="path-inline"></span></p>
+      <p id="dn-phone-line" class="small" hidden>On your phone, look in Pictures › GallerySlim › Restored.</p>
+      <div class="actions">
+        <button type="button" id="btn-open" class="btn primary" data-action>Open folder</button>
+        <button type="button" id="btn-more" class="btn secondary" data-action>Receive more</button>
+      </div>
+      <p id="dn-msg" class="msg" role="status" aria-live="polite"></p>
+    </div>
+    <div id="dn-problems-box" hidden>
+      <h2 id="dn-problems-title" class="section-title">Not saved</h2>
+      <p id="dn-problems-hint" class="small">These are still on your phone. Tap Receive more to try again.</p>
+      <ul id="dn-problems" class="rows"></ul>
+    </div>
+  </section>
+
+  <!-- Error -->
+  <section id="v-error" class="view" aria-labelledby="h-error" hidden>
+    <h1 id="h-error">The transfer stopped</h1>
+    <div class="problem big" role="alert">
+      <span class="problem-icon" aria-hidden="true">!</span>
+      <div>
+        <p id="er-text" class="problem-text"></p>
+        <p class="problem-hint">Check that the phone and this computer are on the same Wi-Fi and GallerySlim is open on the phone. Photos already saved here are kept.</p>
+        <button type="button" id="btn-retry" class="btn primary" data-action>Try again</button>
+      </div>
+    </div>
+    <p id="er-msg" class="msg" role="status" aria-live="polite"></p>
+  </section>
+
+  <!-- Closed -->
+  <section id="v-closed" class="view" aria-labelledby="h-closed" hidden>
+    <h1 id="h-closed">The receiver is closed</h1>
+    <p>You can close this browser tab now.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <span id="version"></span>
+  <button type="button" id="btn-quit" class="link" data-action>Close the receiver</button>
+</footer>
+
+<dialog id="settings" class="sheet" aria-labelledby="h-settings">
+  <div class="sheet-head">
+    <h2 id="h-settings">Settings</h2>
+    <button type="button" id="btn-settings-close" class="btn secondary compact">Done</button>
+  </div>
+
+  <section id="st-folder-sec" class="st-sec" aria-labelledby="h-st-folder">
+    <h3 id="h-st-folder">Save photos in</h3>
+    <p id="st-folder" class="path small-path"></p>
+    <button type="button" id="btn-change-folder" class="btn secondary compact" data-action>Change folder…</button>
+    <details id="st-type" class="disclosure" hidden>
+      <summary>Type a folder path</summary>
+      <div class="field">
+        <label for="st-path">Folder path</label>
+        <input id="st-path" type="text" autocomplete="off" autocapitalize="off" spellcheck="false">
+        <button type="button" id="btn-st-use-typed" class="btn secondary compact" data-action>Use this path</button>
+      </div>
+    </details>
+    <p id="st-folder-msg" class="msg" role="status" aria-live="polite"></p>
+  </section>
+
+  <section id="st-name-sec" class="st-sec" aria-labelledby="h-st-name" hidden>
+    <h3 id="h-st-name">Computer name</h3>
+    <div class="field inline-field">
+      <label for="st-name" class="sr-only">Computer name</label>
+      <input id="st-name" type="text" maxlength="40" autocomplete="off" spellcheck="false" aria-describedby="st-name-hint">
+      <button type="button" id="btn-st-name" class="btn secondary compact" data-action>Save</button>
+    </div>
+    <p id="st-name-hint" class="hint">Your phone shows this name when it sends photos here.</p>
+    <p id="st-name-msg" class="msg" role="status" aria-live="polite"></p>
+  </section>
+
+  <section id="st-login-sec" class="st-sec" hidden>
+    <div class="switch-row">
+      <label for="st-login" class="switch-label">Start with this computer
+        <span class="hint" id="st-login-hint">The receiver waits quietly in the background, so your phone can find it any time.</span>
+      </label>
+      <input id="st-login" type="checkbox" role="switch" class="switch" data-action aria-describedby="st-login-hint">
+    </div>
+    <p id="st-login-msg" class="msg" role="status" aria-live="polite"></p>
+  </section>
+
+  <section id="st-install-sec" class="st-sec" aria-labelledby="h-st-install" hidden>
+    <h3 id="h-st-install">Install on this computer</h3>
+    <p class="hint">Keeps the receiver in a safe place and adds it to your Start menu or Applications.</p>
+    <button type="button" id="btn-install" class="btn secondary compact" data-action>Install</button>
+    <p id="st-install-msg" class="msg" role="status" aria-live="polite"></p>
+  </section>
+
+  <section id="st-phones-sec" class="st-sec" aria-labelledby="h-st-phones" hidden>
+    <h3 id="h-st-phones">Your phones</h3>
+    <p id="st-phones-empty" class="hint">No phones yet. The first time you connect a phone, it is remembered here.</p>
+    <ul id="st-phones" class="paired"></ul>
+    <p id="st-phones-msg" class="msg" role="status" aria-live="polite"></p>
+  </section>
+
+  <section class="st-sec" aria-labelledby="h-st-how">
+    <h3 id="h-st-how">How it works</h3>
+    <p class="hint">Your phone sends photos straight to this computer over your home Wi-Fi. Nothing goes through the internet. Each photo is checked after it arrives, and the phone only offers to free up space for photos that were checked here.</p>
+  </section>
+  <p id="st-version" class="hint"></p>
+</dialog>
+
+<script>{{JS}}</script>
+</body>
+</html>
