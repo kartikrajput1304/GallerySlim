@@ -1,7 +1,5 @@
 ## GallerySlim
-Free up phone storage without losing memories. GallerySlim shrinks photos and videos into verified look-alike copies, cleans out junk like old screenshots and chat forwards, and moves photos to your computer over Wi-Fi and back. All on your devices: no account, no cloud. Android app plus a Windows/Mac/Linux receiver.
-=======
-
+### APK Download Link : https://github.com/kartikrajput1304/GallerySlim/releases/tag/v1.0.0
 Free up space on your Android phone without losing your memories — a personal learning project.
 
 GallerySlim shrinks photos and videos into smaller copies that are checked to look the same, finds what's worth
